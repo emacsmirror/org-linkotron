@@ -1,7 +1,7 @@
-;;; org-linkotron.el --- org-mode link selector   -*- lexical-binding: t; -*-
+;;; org-linkotron.el --- Org-mode link selector   -*- lexical-binding: t; -*-
 
 ;; Author: Per Weijnitz  per.weijnitz@gmail.com
-;; Keywords: org-mode
+;; Keywords: hypermedia, Org
 ;; URL: https://gitlab.com/perweij/org-linkotron
 ;; Version: 0.9
 ;; Package-Requires: ((emacs "26.1") (org "9.0"))
@@ -89,8 +89,18 @@
 ;;
 ;;; Code:
 
-;;(require 'org-element)
 (require 'org)
+
+(defgroup org-linkotron nil "Org link batch opener"
+  :prefix "org-linkotron-"
+  :group 'convenience)
+
+(defcustom org-linkotron-pause 1.0 "Sleep between each link opening.
+Especially for web links, it seems nice to give
+Firefox some time between each call, especially for slower
+computers.  Specify the number of seconds to sleep here."
+  :type '(float)
+  :group "org-linkotron")
 
 ;; Borrowed most of this from https://orgmode.org/worg/org-hacks.html
 (defun org-linkotron--back-to-heading ()
@@ -130,14 +140,13 @@ If MAY-STEP-LINE is t, then allow search on the following line."
   (save-restriction
     (narrow-to-region (point) (line-end-position))
     (let ((link-pos (org-linkotron--next-link)))
-      (if link-pos
-          link-pos
-        (if may-step-line
-            (progn
-              (widen)
-              (forward-line);; FIXME: add error check
-              (beginning-of-line)
-              (org-linkotron--get-link-on-line)))))))
+      (or link-pos
+          (if may-step-line
+              (progn
+                (widen)
+                (forward-line);; FIXME: add error check
+                (beginning-of-line)
+                (org-linkotron--get-link-on-line)))))))
 
 (defun org-linkotron--get-group ()
   "Return a list of points to the org-links found in the current (sub) heading region."
@@ -153,16 +162,21 @@ If MAY-STEP-LINE is t, then allow search on the following line."
             (setq link (org-linkotron--get-link-on-line t)))
           result)))))
 
+;;;###autoload
 (defun org-linkotron-open-group ()
   "Open the org-links found in the current (sub) heading region."
   (interactive)
   (save-excursion
-    (let ((group (org-linkotron--get-group)))
+    (let* ((group (org-linkotron--get-group))
+           (progress-reporter
+            (make-progress-reporter "Opening links...")))
       (mapc (lambda (link)
+              (progress-reporter-update progress-reporter)
               (goto-char link)
               (org-open-at-point)
-              (sit-for 1))
-            group))))
+              (sit-for org-linkotron-pause))
+            group)
+      (progress-reporter-done progress-reporter))))
 
 (provide 'org-linkotron)
 

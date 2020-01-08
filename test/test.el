@@ -1,7 +1,7 @@
 ;;; test.el --- tests for org-linkotron   -*- lexical-binding: t; -*-
 
 (require 'ert)
-(require 'cl)
+(require 'cl-lib)
 
 (load-file "../org-linkotron.el")
 
