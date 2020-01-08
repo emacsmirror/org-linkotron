@@ -24,8 +24,6 @@
 ;;
 ;;
 ;;
-;;
-;;
 ;;; Commentary:
 ;;
 ;; The purpose of this package is to provide a way to open a group of
@@ -36,6 +34,7 @@
 ;; to visit for any specific task, so opening them all at once saves me time.
 ;;
 ;; Links are opened via the standard org funktion ~org-open-at-point~.
+;;
 ;;
 ;;; Installation:
 ;;
@@ -55,9 +54,7 @@
 ;;  ** Some links about something
 ;;  Here is a text with two links, here: [[https://www.fsf.org/][fsf]] and
 ;;  here: [[https://fsfe.org/][fsfe]].
-;;
 ;;  A final one: [[https://www.gnu.org/][gnu]].
-;;
 ;;  ** Another interesting link collection
 ;;   - [[https://en.wikipedia.org/wiki/Amiga_500][Amiga 500]]
 ;;   - [[https://en.wikipedia.org/wiki/Commodore_64][Commodore 64]]
@@ -69,7 +66,7 @@
 ;;
 ;;; Notes:
 ;;
-;; Much of the project scaffolding borrowed from alphapapa's org-super-agenda.
+;; Much of the project scaffolding was borrowed from alphapapa's org-super-agenda.
 ;;
 ;;
 ;;; License:

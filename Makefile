@@ -15,6 +15,7 @@ update-docs: README.org
         sed -i '/ Commentary:/,/ Code:/ c;;; Code:' $(SRC) && \
 	sed -e '/^#\+.*:.*$$/d' \
             -e '/^* COMMENT Export Setup.*:noexport:/,$$ d' \
+	    -e '/pragma:exclude-from-export/d' \
 	    -e 's|^| |' \
             -e 's|^ \*|;|g' \
             -e 's|^[ ]*:||g' \
