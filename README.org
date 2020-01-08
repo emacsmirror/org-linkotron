@@ -12,7 +12,7 @@ to visit for any specific task, so opening them all at once saves me time.
 
 Links are opened via the standard org funktion ~org-open-at-point~.
 
-[[images/screenshot0.gif][screenshot 0]]  @@pragma:exclude-from-export@@
+#+html: <p align="center"><img src="images/screenshot0.gif" /></p> <!-- @@pragma:exclude-from-export@@ -->
 
 * Installation:
 
