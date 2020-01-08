@@ -30,9 +30,7 @@ below, for example:
  :  ** Some links about something
  :  Here is a text with two links, here: [[https://www.fsf.org/][fsf]] and
  :  here: [[https://fsfe.org/][fsfe]].
- :
  :  A final one: [[https://www.gnu.org/][gnu]].
- :
  :  ** Another interesting link collection
  :   - [[https://en.wikipedia.org/wiki/Amiga_500][Amiga 500]]
  :   - [[https://en.wikipedia.org/wiki/Commodore_64][Commodore 64]]

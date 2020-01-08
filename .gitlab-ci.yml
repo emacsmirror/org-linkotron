@@ -6,7 +6,7 @@ variables:
 
 before_script:
   - apt update -qq
-  - DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y -qq -o=Dpkg::Use-Pty=0 git curl python
+  - DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y -qq -o=Dpkg::Use-Pty=0 git curl python ca-certificates
   - git clone https://github.com/rejeep/evm.git $HOME/.evm
   - export PATH=$HOME/.evm/bin:$PATH
 
