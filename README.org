@@ -42,7 +42,7 @@ invoke
 
 * Notes:
 
-Much of the project scaffolding borrowed from alphapapa's org-super-agenda.
+Much of the project scaffolding was borrowed from alphapapa's org-super-agenda.
 
 
 * License:
