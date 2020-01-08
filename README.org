@@ -1,0 +1,97 @@
+#+TITLE: org-linkotron
+#+PROPERTY: LOGGING nil
+
+* Commentary:
+
+The purpose of this package is to provide a way to open a group of
+org-links at once.  A group is defined as all org-links under a
+heading/sub heading, no need to use any special layout or formatting.
+
+The motivation is that I usually have at least a couple of sites I need
+to visit for any specific task, so opening them all at once saves me time.
+
+Links are opened via the standard org funktion ~org-open-at-point~.
+
+* Installation:
+
+Evaluate the elisp source file in some manner.  If you like quelpa,
+this line would also work in your init.el:
+
+ :   (when (not (require 'org-linkotron nil 'noerror))
+ :     (quelpa '(org-linkotron :repo "perweij/org-linkotron" :fetcher gitlab)))
+ :   (require 'org-linkotron)
+
+
+* Usage:
+
+In an org-file, create a heading with some links in the text
+below, for example:
+
+ :  ** Some links about something
+ :  Here is a text with two links, here: [[https://www.fsf.org/][fsf]] and
+ :  here: [[https://fsfe.org/][fsfe]].
+ :
+ :  A final one: [[https://www.gnu.org/][gnu]].
+ :
+ :  ** Another interesting link collection
+ :   - [[https://en.wikipedia.org/wiki/Amiga_500][Amiga 500]]
+ :   - [[https://en.wikipedia.org/wiki/Commodore_64][Commodore 64]]
+
+Now, just place the cursor on the relevant header or its text, and
+invoke
+ : org-linkotron-open-group
+
+
+* Notes:
+
+Much of the project scaffolding borrowed from alphapapa's org-super-agenda.
+
+
+* License:
+
+Copyright (C) 2020, Per Weijnitz, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/gpl-3.0.txt>
+
+
+* COMMENT Export Setup                                             :noexport:
+:PROPERTIES:
+:TOC:      ignore
+:END:
+
+# Much borrowed from alphapapa's org-super-agenda.
+
+
+#+OPTIONS: broken-links:t *:t
+
+** Info export options
+
+#+TEXINFO_DIR_CATEGORY: Emacs
+#+TEXINFO_DIR_TITLE: Org Linkotron: (org-linkotron)
+#+TEXINFO_DIR_DESC: Activate multiple org-links at once.
+
+# NOTE: We could use these, but that causes a pointless error, "org-compile-file: File "..README.info" wasn't produced...", so we just rename the files in the after-save-hook instead.
+# #+TEXINFO_FILENAME: org-linkotron.info
+# #+EXPORT_FILE_NAME: org-linkotron.texi
+
+** File-local variables
+
+# NOTE: Setting org-comment-string buffer-locally is a nasty hack to work around GitHub's org-ruby's HTML rendering, which does not respect noexport tags.  The only way to hide this tree from its output is to use the COMMENT keyword, but that prevents Org from processing the export options declared in it.  So since these file-local variables don't affect org-ruby, wet set org-comment-string to an unused keyword, which prevents Org from deleting this tree from the export buffer, which allows it to find the export options in it.  And since org-export does respect the noexport tag, the tree is excluded from the info page.
+
+# Local Variables:
+# before-save-hook: org-make-toc
+# after-save-hook: (lambda nil (when (and (require 'ox-texinfo nil t) (org-texinfo-export-to-info)) (delete-file "README.texi") (rename-file "README.info" "org-linkotron.info" t)))
+# org-export-initial-scope: buffer
+# org-comment-string: "NOTCOMMENT"
+# End:
