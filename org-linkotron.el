@@ -100,7 +100,7 @@ Especially for web links, it seems nice to give
 Firefox some time between each call, especially for slower
 computers.  Specify the number of seconds to sleep here."
   :type '(float)
-  :group "org-linkotron")
+  :group 'org-linkotron)
 
 ;; Borrowed most of this from https://orgmode.org/worg/org-hacks.html
 (defun org-linkotron--back-to-heading ()
