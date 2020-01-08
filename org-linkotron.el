@@ -1,6 +1,6 @@
 ;;; org-linkotron.el --- Org-mode link selector   -*- lexical-binding: t; -*-
 
-;; Author: Per Weijnitz  per.weijnitz@gmail.com
+;; Author: Per Weijnitz <per.weijnitz@gmail.com>
 ;; Keywords: hypermedia, Org
 ;; URL: https://gitlab.com/perweij/org-linkotron
 ;; Version: 0.9
