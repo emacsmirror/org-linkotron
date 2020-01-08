@@ -158,6 +158,7 @@ If MAY-STEP-LINE is t, then allow search on the following line."
 
 (defun org-linkotron-open-group ()
   "Open the org-links found in the current (sub) heading region."
+  (interactive)
   (save-excursion
     (let ((group (org-linkotron--get-group)))
       (mapc (lambda (link)
