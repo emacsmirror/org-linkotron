@@ -165,7 +165,7 @@ If MAY-STEP-LINE is t, then allow search on the following line."
               (org-open-at-point)
               (sit-for 1))
             group))))
-''
+
 (provide 'org-linkotron)
 
 ;; Local Variables:
