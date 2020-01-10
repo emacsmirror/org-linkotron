@@ -2,7 +2,6 @@ image:  silex/emacs:27
 
 variables:
   GIT_STRATEGY: fetch
-  EVM_EMACS: emacs-26.3
 
 before_script:
   - apt update -qq
