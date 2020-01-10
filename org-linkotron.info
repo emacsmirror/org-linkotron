@@ -16,7 +16,7 @@ org-linkotron
 * Commentary:: Commentary.
 * Installation:: Installation.
 * Usage:: Usage.
-* Notes:: Notes.
+* Credits:: Credits.
 * License:: License.
 
 
@@ -49,7 +49,7 @@ line would also work in your init.el:
      (require 'org-linkotron)
 
 
-File: README.info,  Node: Usage,  Next: Notes,  Prev: Installation,  Up: Top
+File: README.info,  Node: Usage,  Next: Credits,  Prev: Installation,  Up: Top
 
 3 Usage:
 ********
@@ -70,16 +70,18 @@ invoke
      org-linkotron-open-group
 
 
-File: README.info,  Node: Notes,  Next: License,  Prev: Usage,  Up: Top
+File: README.info,  Node: Credits,  Next: License,  Prev: Usage,  Up: Top
 
-4 Notes:
-********
+4 Credits:
+**********
 
-Much of the project scaffolding was borrowed from alphapapa’s
-org-super-agenda.
+   • Thanks to alphapapa (https://github.com/alphapapa) for supplying an
+     elegant implementation and great feedback.  I also borrowed much of
+     the project structure of his org-super-agenda project, as well as
+     the test script makem.sh (https://github.com/alphapapa/makem.sh).
 
 
-File: README.info,  Node: License,  Prev: Notes,  Up: Top
+File: README.info,  Node: License,  Prev: Credits,  Up: Top
 
 5 License:
 **********
@@ -104,11 +106,11 @@ along with this program.  If not, see
 
 Tag Table:
 Node: Top208
-Node: Commentary424
-Node: Installation965
-Node: Usage1361
-Node: Notes2027
-Node: License2204
+Node: Commentary428
+Node: Installation969
+Node: Usage1365
+Node: Credits2033
+Node: License2424
 
 End Tag Table
 
