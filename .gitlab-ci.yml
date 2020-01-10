@@ -1,23 +1,13 @@
-image: debian:stable-slim
+image:  silex/emacs:26.3
 
 variables:
   GIT_STRATEGY: fetch
   EVM_EMACS: emacs-26.3
 
-# FIXME: remove X-related deps here, evm probably builds a nox-version just fine.
 before_script:
   - apt update -qq
-  - DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y -qq -o=Dpkg::Use-Pty=0 git curl python ca-certificates ruby autoconf automake libtool texinfo build-essential libncurses5-dev libdbus-1-dev libm17n-dev libgnutls28-dev libxml2-dev
-  - git clone https://github.com/rejeep/evm.git $HOME/.evm
-  - export PATH=$HOME/.evm/bin:$PATH
-
-  - evm config path /tmp
-  - evm install $EVM_EMACS --use --skip
-
-  # Use cask to install development dependencies
-  - curl -fsSkL https://raw.github.com/cask/cask/master/go | python
-  - export PATH=$HOME/.cask/bin:$PATH
-  - cask
+  - DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y -qq \
+    -o=Dpkg::Use-Pty=0 git curl python ca-certificates ruby texinfo build-essential
 
 stages:
   - test
@@ -25,4 +15,4 @@ stages:
 test-all:
   stage: test
   script:
-    - cask exec test/run --debug
+    - make test
