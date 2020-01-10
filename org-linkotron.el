@@ -3,7 +3,7 @@
 ;; Author: Per Weijnitz <per.weijnitz@gmail.com>
 ;; Keywords: hypermedia, Org
 ;; URL: https://gitlab.com/perweij/org-linkotron
-;; Version: 0.9
+;; Version: 0.9.1
 ;; Package-Requires: ((emacs "26.1") (org "9.0"))
 
 ;; Copyright (C) 2019, Per Weijnitz, all rights reserved.
