@@ -1,18 +1,17 @@
 ;;; test.el --- tests for org-linkotron   -*- lexical-binding: t; -*-
 
 (require 'ert)
-(require 'cl)
-
-(load-file "../org-linkotron.el")
+(require 'cl-lib)
+(require 'org-linkotron)
 
 (defun stage-tests ()
-  (find-file "test.org")
+  (find-file "test/test.org")
   (goto-char 0))
 
 (defun group-compare (heading-name should-find)
   (should (search-forward heading-name nil t))
-  (let ((found (org-linkotron--get-group)))
-    (should (every '= found should-find))))
+  (let ((found (org-linkotron--get-positions)))
+    (should (cl-every '= found should-find))))
 
 (ert-deftest org-linkotron-test-group-0 ()
   (stage-tests)
