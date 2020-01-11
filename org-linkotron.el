@@ -4,7 +4,7 @@
 ;; Keywords: hypermedia, Org
 ;; URL: https://gitlab.com/perweij/org-linkotron
 ;; Version: 0.9.1
-;; Package-Requires: ((emacs "26.1") (org "9.0"))
+;; Package-Requires: ((emacs "26.1") (org "9.1"))
 
 ;; Copyright (C) 2019, Per Weijnitz, all rights reserved.
 
@@ -89,7 +89,6 @@
 ;;; Code:
 
 (require 'org)
-(require 'ol)
 
 (defgroup org-linkotron nil "Org link batch opener"
   :prefix "org-linkotron-"
