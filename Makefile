@@ -8,7 +8,7 @@ bin/makem.sh:
 	chmod a+rx bin/makem.sh
 
 test: bin/makem.sh
-	bin/makem.sh --sandbox --auto-install -vv all
+	bin/makem.sh --sandbox --auto-install --debug -vv all
 
 # Replace the source header documentation with the documentation of the
 # README.org. FIXME: org-links outside of code blocks could be formatted too.
